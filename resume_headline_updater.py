@@ -752,10 +752,9 @@ def main() -> None:
         if args.schedule_loop:
             schedule_loop(args)
             return
-        if args.run_once:
-            ok = run_headline_update(args)
-            raise SystemExit(0 if ok else 1)
-        schedule_loop(args)
+        # Default behavior: run immediately (no time-based scheduling).
+        ok = run_headline_update(args)
+        raise SystemExit(0 if ok else 1)
     except SystemExit:
         raise
     except Exception as exc:
