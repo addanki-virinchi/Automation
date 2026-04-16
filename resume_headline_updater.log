@@ -1,0 +1,46 @@
+2026-04-16 14:35:13,846 [INFO] Starting schedule loop for 13:12 IST.
+2026-04-16 14:35:13,856 [INFO] Sleeping for 81406 seconds until next run at 2026-04-17 13:12:00+05:30.
+2026-04-16 14:35:56,995 [INFO] Starting schedule loop for 14:36 IST.
+2026-04-16 14:35:57,003 [INFO] Sleeping for 3 seconds until next run at 2026-04-16 14:36:00+05:30.
+2026-04-16 14:36:05,582 [WARNING] Profile page blocked (captcha/OTP/access denied).
+2026-04-16 14:36:08,281 [INFO] Sleeping for 86392 seconds until next run at 2026-04-17 14:36:00+05:30.
+2026-04-16 14:37:04,855 [INFO] Starting schedule loop for 14:36 IST.
+2026-04-16 14:37:04,863 [INFO] Sleeping for 86335 seconds until next run at 2026-04-17 14:36:00+05:30.
+2026-04-16 14:37:28,687 [INFO] Starting schedule loop for 14:38 IST.
+2026-04-16 14:37:28,699 [INFO] Sleeping for 31 seconds until next run at 2026-04-16 14:38:00+05:30.
+2026-04-16 14:38:05,207 [WARNING] Profile page blocked (captcha/OTP/access denied).
+2026-04-16 14:38:08,045 [INFO] Sleeping for 86392 seconds until next run at 2026-04-17 14:38:00+05:30.
+2026-04-16 14:39:43,806 [INFO] Starting schedule loop for 14:38 IST.
+2026-04-16 14:39:43,817 [INFO] Sleeping for 86296 seconds until next run at 2026-04-17 14:38:00+05:30.
+2026-04-16 14:44:07,763 [INFO] Starting schedule loop for 14:38 IST.
+2026-04-16 14:44:07,774 [INFO] Sleeping for 86032 seconds until next run at 2026-04-17 14:38:00+05:30.
+2026-04-16 14:45:40,779 [ERROR] Fatal error: 'Namespace' object has no attribute 'schedule_time'
+2026-04-16 14:46:15,003 [INFO] Starting schedule loop for 14:47 IST.
+2026-04-16 14:46:15,016 [INFO] Sleeping for 45 seconds until next run at 2026-04-16 14:47:00+05:30.
+2026-04-16 14:47:06,871 [INFO] Redirected to login page.
+2026-04-16 14:47:06,893 [INFO] Login form detected. Attempting login.
+2026-04-16 14:47:16,200 [INFO] Applying resume headline update (Day-4).
+2026-04-16 14:47:20,710 [INFO] Resume headline update complete.
+2026-04-16 14:47:24,510 [INFO] Sleeping for 86375 seconds until next run at 2026-04-17 14:47:00+05:30.
+2026-04-16 14:50:16,256 [INFO] Starting schedule loop for 14:51 IST.
+2026-04-16 14:50:16,266 [INFO] Sleeping for 44 seconds until next run at 2026-04-16 14:51:00+05:30.
+2026-04-16 14:51:05,135 [INFO] Redirected to login page.
+2026-04-16 14:51:05,158 [INFO] Login form detected. Attempting login.
+2026-04-16 14:51:12,874 [INFO] Applying resume headline update (Day-4).
+2026-04-16 14:51:17,336 [INFO] Resume headline update complete.
+2026-04-16 14:51:20,889 [INFO] Sleeping for 86379 seconds until next run at 2026-04-17 14:51:00+05:30.
+2026-04-16 14:52:20,451 [INFO] Starting schedule loop for 14:51 IST.
+2026-04-16 14:52:20,460 [INFO] Sleeping for 86320 seconds until next run at 2026-04-17 14:51:00+05:30.
+2026-04-16 14:52:46,961 [INFO] Starting schedule loop for 14:53 IST.
+2026-04-16 14:52:46,970 [INFO] Sleeping for 13 seconds until next run at 2026-04-16 14:53:00+05:30.
+2026-04-16 14:53:06,548 [INFO] Redirected to login page.
+2026-04-16 14:53:06,570 [INFO] Login form detected. Attempting login.
+2026-04-16 14:53:14,578 [INFO] Applying resume headline update (Day-4).
+2026-04-16 14:53:19,203 [INFO] Resume headline update complete.
+2026-04-16 14:53:22,512 [INFO] Sleeping for 86377 seconds until next run at 2026-04-17 14:53:00+05:30.
+2026-04-16 14:55:03,118 [INFO] Starting schedule loop for 14:53 IST.
+2026-04-16 14:55:03,129 [INFO] Sleeping for 86277 seconds until next run at 2026-04-17 14:53:00+05:30.
+2026-04-16 14:55:27,253 [INFO] Starting schedule loop for 14:56 IST.
+2026-04-16 14:55:27,266 [INFO] Sleeping for 33 seconds until next run at 2026-04-16 14:56:00+05:30.
+2026-04-16 14:56:05,406 [WARNING] Profile page blocked (captcha/OTP/access denied).
+2026-04-16 14:56:08,247 [INFO] Sleeping for 86392 seconds until next run at 2026-04-17 14:56:00+05:30.

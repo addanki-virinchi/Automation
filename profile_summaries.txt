@@ -1,0 +1,13 @@
+Day-1: Self-taught Python Developer with strong experience in automation, web scraping, and scalable data extraction systems. Skilled in Python, SQL, Selenium, and building high-volume ETL workflows. Experienced with GCP, cron jobs, and cloud-based deployments.
+
+Day-2: Data Engineering enthusiast specializing in Python, SQL, and large-scale data processing. Built robust scraping bots and automated pipelines handling massive datasets. Hands-on with GCP (Compute Engine, GKE) and cloud automation systems.
+
+Day-3: Python Automation Engineer with expertise in Selenium bots, structured data extraction, and workflow automation. Developed cloud-hosted applications and implemented secure subscription systems using Stripe APIs.
+
+Day-4: Backend-focused Python Developer experienced in designing ETL pipelines, database optimization, and API integrations. Built AI-powered applications integrating ChatGPT and Gemini APIs with production-ready deployments.
+
+Day-5: Cloud-oriented Data Developer with practical experience in GCP infrastructure, cron-based automation, and scalable backend systems. Strong foundation in SQL, Python scripting, and high-volume data handling.
+
+Day-6: Automation Specialist skilled in web scraping, bot development, and intelligent data systems. Experience deploying applications on cloud platforms and managing end-to-end data workflows efficiently.
+
+Day-7: Python Developer with hands-on experience in automation, scalable data pipelines, and AI-powered applications. Strong background in web scraping, ETL development, cloud deployments, and API integrations. Passionate about building efficient backend systems and data-driven solutions in Data Engineering and Machine Learning domains.

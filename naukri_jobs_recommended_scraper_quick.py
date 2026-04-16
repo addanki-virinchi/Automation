@@ -4,26 +4,26 @@ import os
 import re
 import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import List
 
-import undetected_chromedriver as uc
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import TimeoutException, WebDriverException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-
-EMAIL = "addankianitha28@gmail.com"
-PASSWORD = "Virinchi@31"
 RECOMMENDED_URL = "https://www.naukri.com/python-development-jobs?k=python%20development&nignbevent_src=jobsearchDeskGNB"
-OUTPUT_CSV = "naukri_jobs.csv"
-MAX_PAGES = 10
+OUTPUT_CSV = "naukri_jobs_pagi.csv"
+MAX_PAGES = 5
 MIN_DELAY = 1.5
 MAX_DELAY = 3.0
+DEFAULT_ENV_FILE = ".env"
 
 LOG_LEVEL = logging.INFO
 LOG_SAMPLE_ROWS = 3
-DEBUG_DUMP_HTML = os.getenv("NAUKRI_DEBUG_HTML") == "1"
+DEBUG_DUMP_HTML = False
 DEBUG_DUMP_CARD_PATH = "naukri_debug_card.html"
 DEBUG_DUMP_PAGE_PATH = "naukri_debug_page.html"
 DEBUG_DUMP_DETAIL_PATH = "naukri_debug_detail.html"
@@ -250,6 +250,37 @@ def setup_logging():
         level=LOG_LEVEL,
         format="%(asctime)s [%(levelname)s] %(message)s",
     )
+
+
+def load_env_file(env_path: Path) -> None:
+    if not env_path.exists():
+        return
+    try:
+        raw_lines = env_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    except OSError:
+        return
+    for line in raw_lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if "=" not in stripped:
+            continue
+        key, value = stripped.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if not key:
+            continue
+        os.environ[key] = value
+
+
+def get_naukri_credentials() -> tuple[str, str]:
+    email = os.getenv("NAUKRI_USERNAME") or os.getenv("NAUKRI_EMAIL") or ""
+    password = os.getenv("NAUKRI_PASSWORD") or ""
+    if not email or not password:
+        raise RuntimeError(
+            "Missing credentials. Set NAUKRI_USERNAME/NAUKRI_EMAIL and NAUKRI_PASSWORD (for example via .env)."
+        )
+    return email, password
 
 
 def trim_text(value: str, max_len: int = 160) -> str:
@@ -562,10 +593,11 @@ def login_if_needed(driver):
         if not email_field or not password_field:
             raise RuntimeError("Login fields not found on the page.")
 
+        email, password = get_naukri_credentials()
         email_field.clear()
-        email_field.send_keys(EMAIL)
+        email_field.send_keys(email)
         password_field.clear()
-        password_field.send_keys(PASSWORD)
+        password_field.send_keys(password)
 
         submit_btn = find_first(driver, ["button[type='submit']"])
         if not submit_btn:
@@ -807,17 +839,18 @@ def go_to_next_page(driver) -> bool:
 
 
 def create_driver():
-    options = uc.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--disable-infobars")
-    options.add_argument("--lang=en-US")
-    driver = uc.Chrome(options=options)
+    driver = webdriver.Chrome(service=Service())
     driver.set_page_load_timeout(30)
     return driver
 
 
 def main():
+    script_env = Path(__file__).with_name(DEFAULT_ENV_FILE)
+    load_env_file(script_env)
+    if not script_env.exists():
+        load_env_file(Path(DEFAULT_ENV_FILE))
+    global DEBUG_DUMP_HTML
+    DEBUG_DUMP_HTML = os.getenv("NAUKRI_DEBUG_HTML") == "1"
     setup_logging()
     logging.info("Starting Naukri scraper.")
     all_rows = []

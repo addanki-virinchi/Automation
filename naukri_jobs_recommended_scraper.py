@@ -4,30 +4,26 @@ import os
 import re
 import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import List
 
-import undetected_chromedriver as uc
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import TimeoutException, WebDriverException, StaleElementReferenceException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-
-EMAIL = "addankianitha28@gmail.com"
-PASSWORD = "Virinchi@31"
-#https://www.naukri.com/python-jobs-3?k=python&qproductJobSource=2&naukriCampus=true&experience=0&nignbevent_src=jobsearchDeskGNB
-RECOMMENDED_URL = "https://www.naukri.com/mnjuser/recommendedjobs"
-SEARCH_BASE_URL = "https://www.naukri.com/python-jobs"
-SEARCH_QUERY = "?k=python&qproductJobSource=2&naukriCampus=true&experience=0&nignbevent_src=jobsearchDeskGNB"
-OUTPUT_CSV = "naukri_jobs_python.csv"
-MAX_PAGES = int(os.getenv("NAUKRI_MAX_PAGES", "10"))
-MAX_JOBS_PER_PAGE = int(os.getenv("NAUKRI_MAX_JOBS_PER_PAGE", "0"))
-SEARCH_START_PAGE = int(os.getenv("NAUKRI_START_PAGE", "1"))
+RECOMMENDED_URL = "https://www.naukri.com/python-development-jobs?k=python%20development&nignbevent_src=jobsearchDeskGNB"
+OUTPUT_CSV = "naukri_jobs.csv"
+MAX_PAGES = 10
 MIN_DELAY = 1.5
 MAX_DELAY = 3.0
+DEFAULT_ENV_FILE = ".env"
 
 LOG_LEVEL = logging.INFO
 LOG_SAMPLE_ROWS = 3
-DEBUG_DUMP_HTML = os.getenv("NAUKRI_DEBUG_HTML") == "1"
+DEBUG_DUMP_HTML = False
 DEBUG_DUMP_CARD_PATH = "naukri_debug_card.html"
 DEBUG_DUMP_PAGE_PATH = "naukri_debug_page.html"
 DEBUG_DUMP_DETAIL_PATH = "naukri_debug_detail.html"
@@ -256,6 +252,37 @@ def setup_logging():
     )
 
 
+def load_env_file(env_path: Path) -> None:
+    if not env_path.exists():
+        return
+    try:
+        raw_lines = env_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    except OSError:
+        return
+    for line in raw_lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if "=" not in stripped:
+            continue
+        key, value = stripped.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if not key:
+            continue
+        os.environ[key] = value
+
+
+def get_naukri_credentials() -> tuple[str, str]:
+    email = os.getenv("NAUKRI_USERNAME") or os.getenv("NAUKRI_EMAIL") or ""
+    password = os.getenv("NAUKRI_PASSWORD") or ""
+    if not email or not password:
+        raise RuntimeError(
+            "Missing credentials. Set NAUKRI_USERNAME/NAUKRI_EMAIL and NAUKRI_PASSWORD (for example via .env)."
+        )
+    return email, password
+
+
 def trim_text(value: str, max_len: int = 160) -> str:
     if not value:
         return ""
@@ -263,28 +290,6 @@ def trim_text(value: str, max_len: int = 160) -> str:
     if len(compact) > max_len:
         return compact[: max_len - 3] + "..."
     return compact
-
-
-def build_search_page_url(page_num: int) -> str:
-    if page_num <= 1:
-        return f"{SEARCH_BASE_URL}{SEARCH_QUERY}"
-    return f"{SEARCH_BASE_URL}-{page_num}{SEARCH_QUERY}"
-
-
-def navigate_to_search_page(driver, page_num: int) -> bool:
-    url = build_search_page_url(page_num)
-    logging.info("Navigating to search page %s: %s", page_num, url)
-    try:
-        driver.get(url)
-    except TimeoutException:
-        pass
-    wait_for_document_ready(driver, timeout=20)
-    time.sleep(1)
-    if not wait_for_job_cards(driver, timeout=15):
-        logging.warning("No job cards detected on search page %s.", page_num)
-        log_job_card_counts(driver)
-        return False
-    return True
 
 
 def wait_for_document_ready(driver, timeout: int = 15):
@@ -588,10 +593,11 @@ def login_if_needed(driver):
         if not email_field or not password_field:
             raise RuntimeError("Login fields not found on the page.")
 
+        email, password = get_naukri_credentials()
         email_field.clear()
-        email_field.send_keys(EMAIL)
+        email_field.send_keys(email)
         password_field.clear()
-        password_field.send_keys(PASSWORD)
+        password_field.send_keys(password)
 
         submit_btn = find_first(driver, ["button[type='submit']"])
         if not submit_btn:
@@ -778,140 +784,192 @@ def extract_description_fallback(driver) -> str:
     return best_text
 
 
+def ensure_listings_loaded(driver, listings_url: str):
+    if wait_for_job_cards(driver, timeout=5):
+        return
+    logging.info("Job cards not visible after navigation. Reloading listings.")
+    try:
+        driver.get(listings_url)
+    except TimeoutException:
+        pass
+    wait_for_document_ready(driver, timeout=15)
+    if not wait_for_job_cards(driver, timeout=10):
+        logging.warning("Job cards still not detected after reload.")
+        log_job_card_counts(driver)
+
+
+def go_to_next_page(driver) -> bool:
+    next_btn = find_first(
+        driver,
+        ["a[title='Next']", "a[aria-label='Next']", "a.pagination-next"],
+    )
+    if not next_btn:
+        logging.info("Next page button not found.")
+        return False
+    btn_class = safe_get_attribute(next_btn, "class").lower()
+    aria_disabled = safe_get_attribute(next_btn, "aria-disabled").lower()
+    if "disabled" in btn_class or aria_disabled == "true":
+        logging.info("Next page button is disabled.")
+        return False
+
+    try:
+        first_card = None
+        cards = find_job_cards(driver)
+        if cards:
+            first_card = cards[0]
+        try:
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_btn)
+        except WebDriverException:
+            pass
+        logging.info("Navigating to next page.")
+        next_btn.click()
+        try:
+            if first_card:
+                WebDriverWait(driver, 15).until(EC.staleness_of(first_card))
+            else:
+                wait_for_document_ready(driver, timeout=15)
+        except TimeoutException:
+            pass
+        time.sleep(1)
+        logging.info("Next page loaded: %s", driver.current_url)
+        return True
+    except WebDriverException:
+        logging.exception("Failed while trying to navigate to next page.")
+        return False
+
+
 def create_driver():
-    options = uc.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--disable-infobars")
-    options.add_argument("--lang=en-US")
-    driver = uc.Chrome(options=options)
+    driver = webdriver.Chrome(service=Service())
     driver.set_page_load_timeout(30)
     return driver
 
 
 def main():
+    script_env = Path(__file__).with_name(DEFAULT_ENV_FILE)
+    load_env_file(script_env)
+    if not script_env.exists():
+        load_env_file(Path(DEFAULT_ENV_FILE))
+    global DEBUG_DUMP_HTML
+    DEBUG_DUMP_HTML = os.getenv("NAUKRI_DEBUG_HTML") == "1"
     setup_logging()
     logging.info("Starting Naukri scraper.")
+    all_rows = []
     driver = None
-    rows_written = 0
-    csv_ready = False
-    header_written = False
     try:
-        write_header = not os.path.exists(OUTPUT_CSV) or os.path.getsize(OUTPUT_CSV) == 0
-        with open(OUTPUT_CSV, "a", newline="", encoding="utf-8") as f:
-            csv_ready = True
-            writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
-            if write_header:
-                writer.writeheader()
-                f.flush()
-                header_written = True
+        driver = create_driver()
+        logging.info("Chrome driver created.")
+        login_if_needed(driver)
+        wait_for_document_ready(driver, timeout=15)
+        time.sleep(1.5)
+        if not wait_for_job_cards(driver, timeout=10):
+            logging.warning("No job cards detected after initial load.")
+            log_job_card_counts(driver)
+        logging.info("Current URL: %s", driver.current_url)
+        logging.info("Page title: %s", driver.title)
 
-            driver = create_driver()
-            logging.info("Chrome driver created.")
-            logging.info(
-                "Search pagination enabled. Pages %s-%s.",
-                SEARCH_START_PAGE,
-                SEARCH_START_PAGE + MAX_PAGES - 1,
-            )
+        page_count = 0
+        sample_count = 0
+        while page_count < MAX_PAGES:
+            page_count += 1
+            delay()
+            logging.info("Processing page %s at %s", page_count, driver.current_url)
+            summaries = collect_job_summaries(driver)
+            if not summaries:
+                logging.warning("No job summaries extracted on page %s.", page_count)
+                page_text = driver.page_source.lower()
+                if "captcha" in page_text or "verify" in page_text:
+                    logging.warning("Page content suggests a captcha/verification gate.")
+                break
 
-            sample_count = 0
-            for page_number in range(SEARCH_START_PAGE, SEARCH_START_PAGE + MAX_PAGES):
-                if not navigate_to_search_page(driver, page_number):
-                    break
-                logging.info("Processing page %s at %s", page_number, driver.current_url)
-                delay()
-                summaries = collect_job_summaries(driver)
-                if not summaries:
-                    logging.warning("No job summaries extracted on page %s.", page_number)
-                    page_text = driver.page_source.lower()
-                    if "captcha" in page_text or "verify" in page_text:
-                        logging.warning("Page content suggests a captcha/verification gate.")
-                    break
+            listings_url = driver.current_url
+            for summary in summaries:
+                job_url = summary.constructed_url or summary.listing_url
+                if not job_url and summary.job_id:
+                    job_url = f"https://www.naukri.com/job-listings?jobId={summary.job_id}"
+                if job_url and "review" in job_url.lower():
+                    job_url = ""
+                if not job_url:
+                    continue
 
-                jobs_on_page = 0
-                for summary in summaries:
-                    if MAX_JOBS_PER_PAGE > 0 and jobs_on_page >= MAX_JOBS_PER_PAGE:
-                        logging.info("Reached max jobs per page limit: %s", MAX_JOBS_PER_PAGE)
-                        break
-                    job_url = summary.constructed_url or summary.listing_url
-                    if not job_url and summary.job_id:
-                        job_url = f"https://www.naukri.com/job-listings?jobId={summary.job_id}"
-                    if job_url and "review" in job_url.lower():
-                        job_url = ""
-                    if not job_url:
-                        continue
-
-                    try:
-                        if sample_count < LOG_SAMPLE_ROWS:
-                            logging.info("Opening job detail: %s", job_url)
-                        try:
-                            driver.get(job_url)
-                        except TimeoutException:
-                            pass
-                        wait_for_document_ready(driver, timeout=10)
-                        if is_not_found_page(driver) and summary.job_id:
-                            fallback_url = f"https://www.naukri.com/job-listings?jobId={summary.job_id}"
-                            if fallback_url != job_url:
-                                logging.warning("Detail page not found. Retrying with %s", fallback_url)
-                                job_url = fallback_url
-                                try:
-                                    driver.get(fallback_url)
-                                except TimeoutException:
-                                    pass
-                                wait_for_document_ready(driver, timeout=10)
-                        if not wait_for_detail_content(driver, timeout=15):
-                            logging.warning("Detail content not detected for %s", job_url)
-                        delay()
-                        details = extract_job_details(driver)
-                        if not details.description:
-                            dump_detail_html(driver)
-                    except TimeoutException:
-                        logging.warning("Timeout while loading job detail: %s", job_url)
-                        details = JobDetail("", "", "", "", "")
-                    except Exception:
-                        logging.exception("Unexpected error while extracting job detail: %s", job_url)
-                        details = JobDetail("", "", "", "", "")
-
-                    row = {
-                        "Job Title": summary.title,
-                        "Company": summary.company,
-                        "Location": summary.location,
-                        "Experience": summary.experience,
-                        "Job ID": summary.job_id,
-                        "Listing URL": summary.listing_url,
-                        "Job URL": job_url,
-                        "Salary": details.salary,
-                        "Skills": details.skills,
-                        "Description": details.description,
-                        "Company Details": details.company_details,
-                        "Additional Requirements": details.additional_requirements,
-                    }
-                    writer.writerow(row)
-                    f.flush()
-                    rows_written += 1
-                    jobs_on_page += 1
+                try:
                     if sample_count < LOG_SAMPLE_ROWS:
-                        sample_count += 1
-                        log_sample_data(sample_count, summary, details)
-            logging.info("Finished pagination loop.")
+                        logging.info("Opening job detail: %s", job_url)
+                    try:
+                        driver.get(job_url)
+                    except TimeoutException:
+                        pass
+                    wait_for_document_ready(driver, timeout=10)
+                    if is_not_found_page(driver) and summary.job_id:
+                        fallback_url = f"https://www.naukri.com/job-listings?jobId={summary.job_id}"
+                        if fallback_url != job_url:
+                            logging.warning("Detail page not found. Retrying with %s", fallback_url)
+                            job_url = fallback_url
+                            try:
+                                driver.get(fallback_url)
+                            except TimeoutException:
+                                pass
+                            wait_for_document_ready(driver, timeout=10)
+                    if not wait_for_detail_content(driver, timeout=15):
+                        logging.warning("Detail content not detected for %s", job_url)
+                    delay()
+                    details = extract_job_details(driver)
+                    if not details.description:
+                        dump_detail_html(driver)
+                except TimeoutException:
+                    logging.warning("Timeout while loading job detail: %s", job_url)
+                    details = JobDetail("", "", "", "", "")
+                except Exception:
+                    logging.exception("Unexpected error while extracting job detail: %s", job_url)
+                    details = JobDetail("", "", "", "", "")
 
-    except OSError:
-        csv_ready = False
-        logging.exception("Failed to write CSV to %s.", OUTPUT_CSV)
+                row = {
+                    "Job Title": summary.title,
+                    "Company": summary.company,
+                    "Location": summary.location,
+                    "Experience": summary.experience,
+                    "Job ID": summary.job_id,
+                    "Listing URL": summary.listing_url,
+                    "Job URL": job_url,
+                    "Salary": details.salary,
+                    "Skills": details.skills,
+                    "Description": details.description,
+                    "Company Details": details.company_details,
+                    "Additional Requirements": details.additional_requirements,
+                }
+                all_rows.append(row)
+                if sample_count < LOG_SAMPLE_ROWS:
+                    sample_count += 1
+                    log_sample_data(sample_count, summary, details)
+
+                try:
+                    driver.back()
+                except WebDriverException:
+                    pass
+                wait_for_document_ready(driver, timeout=10)
+                ensure_listings_loaded(driver, listings_url)
+
+            if not go_to_next_page(driver):
+                break
+            remember_url = driver.current_url
+            if remember_url != listings_url:
+                listings_url = remember_url
 
     finally:
         if driver:
             driver.quit()
             logging.info("Chrome driver closed.")
 
-    if csv_ready:
-        if rows_written:
-            logging.info("CSV appended to %s with %s rows.", OUTPUT_CSV, rows_written)
-        else:
-            if header_written:
-                logging.warning("No job rows were extracted. CSV contains only headers.")
-            else:
-                logging.warning("No new job rows were extracted.")
+    try:
+        with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
+            writer.writeheader()
+            for row in all_rows:
+                writer.writerow(row)
+        logging.info("CSV written to %s with %s rows.", OUTPUT_CSV, len(all_rows))
+    except OSError:
+        logging.exception("Failed to write CSV to %s.", OUTPUT_CSV)
+    if not all_rows:
+        logging.warning("No job rows were extracted. CSV contains only headers.")
 
 
 if __name__ == "__main__":

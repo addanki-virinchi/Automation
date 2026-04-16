@@ -1,0 +1,224 @@
+[2026-03-28 13:52:07] =======================================================
+[2026-03-28 13:52:08] ▶ Starting scraper | Input: naukri_jobs_py.csv | Output: results.csv
+[2026-03-28 13:52:08]   ℹ Duplicates found in input CSV (skipped): ['Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Capgemini', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Iris Regtech Solutions Limited', 'Verdantis', 'Kezan Consulting', 'Kezan Consulting', 'Infosys', 'Infosys', 'Infosys', 'HCLTech', 'Capgemini', 'Intellias']
+[2026-03-28 13:52:08] 📋 Total in CSV      : 100
+[2026-03-28 13:52:08]    Unique companies  : 68
+[2026-03-28 13:52:08]    Already scraped   : 0  (loaded from results.csv)
+[2026-03-28 13:52:08]    To scrape now     : 68
+[2026-03-28 13:52:08] 🔊 Alert sound       : D:\Automation\alert.mp3
+[2026-03-28 13:52:08] =======================================================
+[2026-03-28 13:55:05] 
+[1/68]
+[2026-03-28 13:55:05] 🔍 Searching: Autodesk
+[2026-03-28 13:56:02]   AI Mode: ✅
+[2026-03-28 13:56:09]   🌐 https://www.autodesk.com/support/contact-support | 📧 sales.me@autodesk.com, ap.inquiry.amer@autodesk.com, ap.inquiry.apac@autodesk.com, accessibility@autodesk.com, appsubmissions@autodesk.com | 🔗 not found
+[2026-03-28 13:56:13] 
+[2/68]
+[2026-03-28 13:56:13] 🔍 Searching: Quantiphi Analytics Solutions
+[2026-03-28 13:56:36]   AI Mode: ✅
+[2026-03-28 13:56:42]   🌐 not found | 📧 info@quantiphi.com, recruit@quantiphi.com, privacy@quantiphi.com, accounts@quantiphi.com | 🔗 not found
+[2026-03-28 13:56:49] 
+[3/68]
+[2026-03-28 13:56:49] 🔍 Searching: AMERICAN EXPRESS
+[2026-03-28 13:57:11]   AI Mode: ✅
+[2026-03-28 13:57:18]   🌐 https://www.americanexpress.com/in/customer-service/ | 📧 manager-customerservicesindia@aexp.com, head-customerservicesindia@aexp.com, aebcnodalofficer@aexp.com, ir@aexp.com, insuranceservices@aexp.com | 🔗 not found
+[2026-03-28 13:57:22] 
+[4/68]
+[2026-03-28 13:57:22] 🔍 Searching: Tiger Analytics
+[2026-03-28 13:57:48]   AI Mode: ✅
+[2026-03-28 13:57:55]   🌐 https://www.tigeranalytics.com/contact-us/ | 📧 info@tigeranalytics.com, dpo@tigeranalytics.com, venugopal@tigeranalytics.com, firstname.lastname@tigeranalytics.com, firstname@tigeranalytics.com | 🔗 not found
+[2026-03-28 13:58:02] 
+[5/68]
+[2026-03-28 13:58:02] 🔍 Searching: Airpay Payment Services
+[2026-03-28 13:58:16]   AI Mode: ✅
+[2026-03-28 13:58:22]   🌐 not found | 📧 customerservice@airpay.co.in, customercare@airpay.co.in, cards@airpay.co.in, grievance.officer@airpay.co.in, nodal.officer@airpay.co.in | 🔗 not found
+[2026-03-28 13:58:22] 💾 Progress checkpoint: 5/68 done
+[2026-03-28 13:58:27] 
+[6/68]
+[2026-03-28 13:58:27] 🔍 Searching: Dwaraka Head Quarters
+[2026-03-28 13:58:47]   AI Mode: ✅
+[2026-03-28 13:58:54]   🌐 not found | 📧 collector-devbdwarka@gujarat.gov.in, ddo-dev@gujarat.gov.in, gen-devbdwarka@gujarat.gov.in, addl-collector-dev@gujarat.gov.in, dwarakasdm@nic.in | 🔗 not found
+[2026-03-28 13:59:01] 
+[7/68]
+[2026-03-28 13:59:01] 🔍 Searching: Appscrip
+[2026-03-28 13:59:12]   AI Mode: ⬜ not available
+[2026-03-28 13:59:13]   🌐 not found | 📧 none | 🔗 not found
+[2026-03-28 13:59:18] 
+[8/68]
+[2026-03-28 13:59:18] 🔍 Searching: Tata Consultancy Services
+[2026-03-28 13:59:27]   AI Mode: ⬜ not available
+[2026-03-29 00:42:29] =======================================================
+[2026-03-29 00:42:29] ▶ Starting scraper | Input: naukri_jobs_py.csv | Output: results.csv
+[2026-03-29 00:42:29]   ℹ Duplicates found in input CSV (skipped): ['Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Capgemini', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Iris Regtech Solutions Limited', 'Verdantis', 'Kezan Consulting', 'Kezan Consulting', 'Infosys', 'Infosys', 'Infosys', 'HCLTech', 'Capgemini', 'Intellias']
+[2026-03-29 00:42:29] 📋 Total in CSV      : 100
+[2026-03-29 00:42:29]    Unique companies  : 68
+[2026-03-29 00:42:29]    Already scraped   : 7  (loaded from results.csv)
+[2026-03-29 00:42:29]    To scrape now     : 61
+[2026-03-29 00:42:29] 🔊 Alert sound       : D:\Automation\alert.mp3
+[2026-03-29 00:42:29] =======================================================
+[2026-03-29 00:42:49] 
+[1/61]
+[2026-03-29 00:42:49] 🔍 Searching: Tata Consultancy Services
+[2026-03-29 00:43:17]   AI Mode: ✅
+[2026-03-29 00:43:23]   🌐 not found | 📧 corporate.office@tcs.com, tcs.cpo@tcs.com, whistle.blower@tcs.com, global.marketing@tcs.com, careers@tcs.com | 🔗 not found
+[2026-03-29 00:43:28] 
+[2/61]
+[2026-03-29 00:43:28] 🔍 Searching: Infosys
+[2026-03-29 00:43:39]   AI Mode: ⬜ not available
+[2026-03-29 00:43:39]   🌐 not found | 📧 none | 🔗 not found
+[2026-03-29 00:43:46] 
+[3/61]
+[2026-03-29 00:43:46] 🔍 Searching: Hexaware Technologies
+[2026-03-29 00:45:27] =======================================================
+[2026-03-29 00:45:27] ▶ Starting scraper | Input: naukri_jobs_py.csv | Output: results.csv
+[2026-03-29 00:45:27]   ℹ Duplicates found in input CSV (skipped): ['Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Capgemini', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Iris Regtech Solutions Limited', 'Verdantis', 'Kezan Consulting', 'Kezan Consulting', 'Infosys', 'Infosys', 'Infosys', 'HCLTech', 'Capgemini', 'Intellias']
+[2026-03-29 00:45:27] 📋 Total in CSV      : 100
+[2026-03-29 00:45:27]    Unique companies  : 68
+[2026-03-29 00:45:27]    Already scraped   : 0  (loaded from results.csv)
+[2026-03-29 00:45:27]    To scrape now     : 68
+[2026-03-29 00:45:27] 🔊 Alert sound       : D:\Automation\alert.mp3
+[2026-03-29 00:45:27] =======================================================
+[2026-03-29 00:45:47] 
+[1/68]
+[2026-03-29 00:45:47] 🔍 Searching: Autodesk
+[2026-03-29 00:46:15]   AI Mode: ✅
+[2026-03-29 00:46:22]   🌐 https://www.autodesk.com/ | 📧 accessibility@autodesk.com | 🔗 https://www.linkedin.com/company/autodesk#:~:text=Website%20http://www.autodesk,%2C%20PLM%2C%20Cloud%2C%20and%20Mobile
+[2026-03-29 00:46:27] 
+[2/68]
+[2026-03-29 00:46:27] 🔍 Searching: Quantiphi Analytics Solutions
+[2026-03-29 00:46:46]   AI Mode: ✅
+[2026-03-29 00:46:53]   🌐 not found | 📧 recruit@quantiphi.com, info@quantiphi.com | 🔗 not found
+[2026-03-29 00:46:58] 
+[3/68]
+[2026-03-29 00:46:58] 🔍 Searching: AMERICAN EXPRESS
+[2026-03-29 00:47:15]   AI Mode: ✅
+[2026-03-29 00:47:22]   🌐 https://www.americanexpress.com/en-us/careers/ | 📧 recruitment.support.americas@aexp.com, recruitment.support.india@aexp.com, recruitment.support.emea@aexp.com, recruitment.support.apac@aexp.com, campusrecruitment@aexp.com | 🔗 not found
+[2026-03-29 00:47:30] 
+[4/68]
+[2026-03-29 00:47:30] 🔍 Searching: Tiger Analytics
+[2026-03-29 00:47:39]   AI Mode: ⬜ not available
+[2026-03-29 00:47:40]   🌐 not found | 📧 none | 🔗 not found
+[2026-03-29 00:47:47] 
+[5/68]
+[2026-03-29 00:47:47] 🔍 Searching: Airpay Payment Services
+[2026-03-29 00:47:57]   AI Mode: ⬜ not available
+[2026-03-29 00:47:58]   🌐 not found | 📧 none | 🔗 not found
+[2026-03-29 00:47:58] 💾 Progress checkpoint: 5/68 done
+[2026-03-29 00:48:03] 
+[6/68]
+[2026-03-29 00:48:03] 🔍 Searching: Dwaraka Head Quarters
+[2026-03-29 00:48:16]   AI Mode: ✅
+[2026-03-29 00:48:23]   🌐 not found | 📧 info@dwarakaconstructions.com | 🔗 not found
+[2026-03-29 00:48:31] 
+[7/68]
+[2026-03-29 00:48:31] 🔍 Searching: Appscrip
+[2026-03-29 00:48:40]   AI Mode: ⬜ not available
+[2026-03-29 00:48:41]   🌐 not found | 📧 none | 🔗 not found
+[2026-03-29 00:48:46] 
+[8/68]
+[2026-03-29 00:48:46] 🔍 Searching: Tata Consultancy Services
+[2026-03-29 00:48:59]   AI Mode: ✅
+[2026-03-29 00:49:06]   🌐 not found | 📧 careers@tcs.com, ilp.support@tcs.com, tcsbps.support@tcs.com, recruitment.entrylevel@tcs.com, careers.tcshub@mail.digialm.com | 🔗 not found
+[2026-03-29 00:49:11] 
+[9/68]
+[2026-03-29 00:49:11] 🔍 Searching: Infosys
+[2026-03-29 00:49:20]   AI Mode: ⬜ not available
+[2026-03-29 00:49:21]   🌐 not found | 📧 none | 🔗 not found
+[2026-03-29 00:49:27] 
+[10/68]
+[2026-03-29 00:49:27] 🔍 Searching: Hexaware Technologies
+[2026-03-29 00:49:39]   AI Mode: ✅
+[2026-03-29 00:49:47]   🌐 https://hexaware.com/careers | 📧 careers@hexaware.com, investori@hexaware.com | 🔗 not found
+[2026-03-29 00:49:47] 💾 Progress checkpoint: 10/68 done
+[2026-03-29 00:49:52] 
+[11/68]
+[2026-03-29 00:49:52] 🔍 Searching: Quest Global
+[2026-03-29 00:50:05]   AI Mode: ✅
+[2026-03-29 00:50:13]   🌐 https://careers.quest-global.com | 📧 careers@quest-global.com, dataprotection_quest@quest-global.com, careers@quest-global.com.read, info@quest-global.com.read | 🔗 https://in.linkedin.com/company/quest-global#:~:text=Quest%20Global%20conducts%20a%20formal,Type%20Privately%20Held
+[2026-03-29 00:50:20] 
+[12/68]
+[2026-03-29 00:50:20] 🔍 Searching: EY
+[2026-04-09 23:18:21] =======================================================
+[2026-04-09 23:18:21] ▶ Starting scraper | Input: naukri_jobs_py.csv | Output: results.csv
+[2026-04-09 23:18:21]   ℹ Duplicates found in input CSV (skipped): ['Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Capgemini', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Iris Regtech Solutions Limited', 'Verdantis', 'Kezan Consulting', 'Kezan Consulting', 'Infosys', 'Infosys', 'Infosys', 'HCLTech', 'Capgemini', 'Intellias', 'JPMorgan Chase Bank', 'Capgemini', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'CGI', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Yash Technologies', 'Tech Mahindra', 'Infosys', 'Infosys', 'Virtusa', 'Capgemini', 'Tata Consultancy Services', 'Iris Software', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Srs Business Solutions India', 'Tata Consultancy Services', 'Virtusa', 'Infosys', 'Synechron', 'Virtusa', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Virtusa', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Synechron', 'CGI', 'Tech Mahindra', 'Tata Consultancy Services', 'Capgemini', 'Capgemini', 'Synechron', 'Synechron']
+[2026-04-09 23:18:21] 📋 Total in CSV      : 200
+[2026-04-09 23:18:21]    Unique companies  : 119
+[2026-04-09 23:18:21]    Already scraped   : 11  (loaded from results.csv)
+[2026-04-09 23:18:21]    To scrape now     : 108
+[2026-04-09 23:18:21] 🔊 Alert sound       : D:\Automation\alert.mp3
+[2026-04-09 23:18:21] =======================================================
+[2026-04-09 23:18:33] 
+[1/108]
+[2026-04-09 23:18:33] 🔍 Searching: EY
+[2026-04-09 23:18:49]   AI Mode: ✅
+[2026-04-09 23:23:07] =======================================================
+[2026-04-09 23:23:07] ▶ Starting scraper | Input: naukri_jobs_py.csv | Output: results.csv
+[2026-04-09 23:23:07]   ℹ Duplicates found in input CSV (skipped): ['Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Capgemini', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Tata Consultancy Services', 'Kezan Consulting', 'Kezan Consulting', 'Kezan Consulting', 'Iris Regtech Solutions Limited', 'Verdantis', 'Kezan Consulting', 'Kezan Consulting', 'Infosys', 'Infosys', 'Infosys', 'HCLTech', 'Capgemini', 'Intellias', 'JPMorgan Chase Bank', 'Capgemini', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'CGI', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Yash Technologies', 'Tech Mahindra', 'Infosys', 'Infosys', 'Virtusa', 'Capgemini', 'Tata Consultancy Services', 'Iris Software', 'Wells Fargo', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Srs Business Solutions India', 'Tata Consultancy Services', 'Virtusa', 'Infosys', 'Synechron', 'Virtusa', 'Tata Consultancy Services', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Infosys', 'Virtusa', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Synechron', 'CGI', 'Tech Mahindra', 'Tata Consultancy Services', 'Capgemini', 'Capgemini', 'Synechron', 'Synechron', 'S&P Global Market Intelligence', 'Globaldata', 'Infosys', 'Tata Consultancy Services', 'Tech Mahindra', 'Srs Business Solutions India', 'Virtusa', 'S&P Global Market Intelligence', 'Verizon', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Tata Consultancy Services', 'Tata Consultancy Services', 'Srs Business Solutions India', 'Virtusa', 'Epam Systems', 'Synechron', 'Deloitte Consulting', 'Careernet', 'Bounteous x Accolite', 'Tata Consultancy Services', 'CGI', 'Infosys', 'Virtusa', 'Virtusa', 'Virtusa', 'Health Data Max', 'Virtusa', 'Tata Consultancy Services', 'Infosys', 'Infosys', 'Luxoft', 'XTGlobal', 'Programmers io', 'Programmers io', 'Mercedes Benz']
+[2026-04-09 23:23:07] 📋 Total in CSV      : 240
+[2026-04-09 23:23:07]    Unique companies  : 122
+[2026-04-09 23:23:07]    Already scraped   : 11  (loaded from results.csv)
+[2026-04-09 23:23:07]    To scrape now     : 111
+[2026-04-09 23:23:07] 🔊 Alert sound       : D:\Automation\alert.mp3
+[2026-04-09 23:23:07] =======================================================
+[2026-04-09 23:23:16] 
+[1/111]
+[2026-04-09 23:23:16] 🔍 Searching: EY
+[2026-04-09 23:23:31]   AI Mode: ✅
+[2026-04-09 23:23:38]   🌐 https://careers.ey.com/ | 📧 none | 🔗 not found
+[2026-04-09 23:23:45] 
+[2/111]
+[2026-04-09 23:23:45] 🔍 Searching: Morningstar
+[2026-04-09 23:23:58]   AI Mode: ✅
+[2026-04-09 23:24:05]   🌐 https://www.morningstar.in/ | 📧 productinfo@morningstar.com | 🔗 not found
+[2026-04-09 23:24:12] 
+[3/111]
+[2026-04-09 23:24:12] 🔍 Searching: Wells Fargo
+[2026-04-09 23:24:24]   AI Mode: ✅
+[2026-04-09 23:24:31]   🌐 https://www.wellsfargo.com/ | 📧 wellsfargocareers@wellsfargo.com, accommodationrequest@wellsfargo.com, wellsfargoadaintake@metlife.com | 🔗 not found
+[2026-04-09 23:24:38] 
+[4/111]
+[2026-04-09 23:24:38] 🔍 Searching: COM Vision (india) Limited
+[2026-04-09 23:24:51]   AI Mode: ✅
+[2026-04-09 23:24:58]   🌐 not found | 📧 prashant.saxena@comvision.com, reachus@vispl.co.in | 🔗 https://in.linkedin.com/company/comvision-india
+[2026-04-09 23:25:05] 
+[5/111]
+[2026-04-09 23:25:05] 🔍 Searching: HCLTech
+[2026-04-09 23:25:18]   AI Mode: ✅
+[2026-04-09 23:25:25]   🌐 https://rmkcdn.successfactors.com/147eb21f/03c9d37a-f7b2-446e-90c1-8.png | 📧 grievance-india@hcltech.com, hcldpo@hcltech.com, privacy@hcltech.com | 🔗 https://in.linkedin.com/company/hcltech/jobs
+[2026-04-09 23:25:25] 💾 Progress checkpoint: 5/111 done
+[2026-04-09 23:25:30] 
+[6/111]
+[2026-04-09 23:25:30] 🔍 Searching: Technogen INC
+[2026-04-09 23:25:42]   AI Mode: ✅
+[2026-04-09 23:25:49]   🌐 https://www.technogeninc.com/ | 📧 contact@technogeninc.com, contact@technogenindia.com, contact@technogen-edutech.com, raghavender.k@technogenindia.com | 🔗 https://in.linkedin.com/company/technogenindia#:~:text=Digital/Industry%20Focused%20Solutions:%20Our,ETL%20Testing%2C%20DevOps%2C%20and%20DevSecOps
+[2026-04-09 23:25:54] 
+[7/111]
+[2026-04-09 23:25:54] 🔍 Searching: Oracle
+[2026-04-09 23:26:06]   AI Mode: ✅
+[2026-04-09 23:26:13]   🌐 https://careers.oracle.com/ | 📧 recruiting-events-opt-out_ww@oracle.com | 🔗 not found
+[2026-04-09 23:26:21] 
+[8/111]
+[2026-04-09 23:26:21] 🔍 Searching: AVENIRDIGITAL SOLUTIONS PRIVATE LIMITED
+[2026-04-09 23:26:34]   AI Mode: ✅
+[2026-04-09 23:26:42]   🌐 http://www.avenirdigital.ai | 📧 careers@avenirdigital.com, info@avenirdigital.ai | 🔗 https://www.linkedin.com/company/avenir-digita
+[2026-04-09 23:26:48] 
+[9/111]
+[2026-04-09 23:26:48] 🔍 Searching: Insight Direct India
+[2026-04-09 23:27:00]   AI Mode: ✅
+[2026-04-09 23:27:07]   🌐 not found | 📧 naman.jain@insight.com | 🔗 https://www.linkedin.com/company/insight-direct
+[2026-04-09 23:27:14] 
+[10/111]
+[2026-04-09 23:27:14] 🔍 Searching: 9nexus
+[2026-04-09 23:27:28]   AI Mode: ✅
+[2026-04-09 23:27:34]   🌐 https://9nexus.com/ | 📧 none | 🔗 https://in.linkedin.com/company/9nexus#:~:text=About%20us.%20Welcome%20to%209NEXUS%2D%20Your%20Trusted,IT%20services%20and%20strategic%20offshore%20staffing%20solutions.
+[2026-04-09 23:27:34] 💾 Progress checkpoint: 10/111 done
+[2026-04-09 23:27:39] 
+[11/111]
+[2026-04-09 23:27:39] 🔍 Searching: Iris Software
+[2026-04-09 23:27:45] 🚨 CAPTCHA DETECTED — solve it in the browser. Script paused.
+[2026-04-09 23:28:25] ✅ Captcha solved — resuming.
+[2026-04-09 23:28:41]   AI Mode: ✅
+[2026-04-09 23:28:49]   🌐 https://www.irissoftware.com | 📧 recruitments@irisbusiness.com | 🔗 https://www.linkedin.com/company/iris-software-inc.#:~:text=The%20general%20public%20is%20hereby,https://www.irissoftware.com
+[2026-04-09 23:28:54] 
+[12/111]
+[2026-04-09 23:28:54] 🔍 Searching: Capgemini

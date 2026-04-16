@@ -1,0 +1,76 @@
+2026-04-16 12:55:37,506 [INFO] Starting schedule loop for 08:00 IST.
+2026-04-16 12:55:37,535 [INFO] Sleeping for 68662 seconds until next run at 2026-04-17 08:00:00+05:30.
+2026-04-16 12:56:11,733 [INFO] Starting schedule loop for 12:57 IST.
+2026-04-16 12:56:11,739 [INFO] Sleeping for 48 seconds until next run at 2026-04-16 12:57:00+05:30.
+2026-04-16 12:57:00,316 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 12:57:00,525 [INFO] Loaded profile summary from profile.html.
+2026-04-16 12:57:05,840 [WARNING] The chromedriver version (145.0.7632.160) detected in PATH at C:\Users\91630\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.57 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+2026-04-16 13:01:32,778 [INFO] Starting schedule loop for 12:57 IST.
+2026-04-16 13:01:32,816 [INFO] Sleeping for 86127 seconds until next run at 2026-04-17 12:57:00+05:30.
+2026-04-16 13:02:01,611 [INFO] Starting schedule loop for 13:02 IST.
+2026-04-16 13:02:01,618 [INFO] Sleeping for 86398 seconds until next run at 2026-04-17 13:02:00+05:30.
+2026-04-16 13:02:18,930 [INFO] Starting schedule loop for 13:03 IST.
+2026-04-16 13:02:18,937 [INFO] Sleeping for 41 seconds until next run at 2026-04-16 13:03:00+05:30.
+2026-04-16 13:03:00,317 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:03:00,523 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:03:00,697 [WARNING] The chromedriver version (145.0.7632.160) detected in PATH at C:\Users\91630\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (147.0.7727.56); currently, chromedriver 147.0.7727.57 is recommended for chrome 147.*, so it is advised to delete the driver in PATH and retry
+2026-04-16 13:07:48,725 [INFO] Starting schedule loop for 13:03 IST.
+2026-04-16 13:07:48,762 [INFO] Sleeping for 86111 seconds until next run at 2026-04-17 13:03:00+05:30.
+2026-04-16 13:08:13,074 [INFO] Starting schedule loop for 13:08 IST.
+2026-04-16 13:08:13,079 [INFO] Sleeping for 86387 seconds until next run at 2026-04-17 13:08:00+05:30.
+2026-04-16 13:08:25,237 [INFO] Starting schedule loop for 13:09 IST.
+2026-04-16 13:08:25,243 [INFO] Sleeping for 35 seconds until next run at 2026-04-16 13:09:00+05:30.
+2026-04-16 13:09:00,418 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:09:00,589 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:09:29,774 [INFO] Chrome driver closed.
+2026-04-16 13:10:59,890 [INFO] Starting schedule loop for 13:09 IST.
+2026-04-16 13:10:59,897 [INFO] Sleeping for 86280 seconds until next run at 2026-04-17 13:09:00+05:30.
+2026-04-16 13:11:31,558 [INFO] Starting schedule loop for 13:12 IST.
+2026-04-16 13:11:31,565 [INFO] Sleeping for 28 seconds until next run at 2026-04-16 13:12:00+05:30.
+2026-04-16 13:12:00,013 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:12:00,044 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:12:04,695 [INFO] Redirected to login page.
+2026-04-16 13:12:04,710 [INFO] Login form detected. Attempting login.
+2026-04-16 13:12:07,223 [INFO] Login completed.
+2026-04-16 13:12:09,800 [INFO] Profile page loaded.
+2026-04-16 13:12:09,998 [INFO] Applying summary update (Day-4).
+2026-04-16 13:12:23,094 [INFO] Profile summary editor opened (edit icon).
+2026-04-16 13:12:45,306 [WARNING] Profile summary drawer still visible after save.
+2026-04-16 13:12:45,306 [INFO] Profile summary update complete.
+2026-04-16 13:12:47,948 [INFO] Chrome driver closed.
+2026-04-16 13:12:47,948 [INFO] Sleeping for 86352 seconds until next run at 2026-04-17 13:12:00+05:30.
+2026-04-16 13:48:38,780 [INFO] Starting schedule loop for 13:12 IST.
+2026-04-16 13:48:38,789 [INFO] Sleeping for 84201 seconds until next run at 2026-04-17 13:12:00+05:30.
+2026-04-16 13:49:16,625 [INFO] Starting schedule loop for 13:50 IST.
+2026-04-16 13:49:16,633 [INFO] Sleeping for 43 seconds until next run at 2026-04-16 13:50:00+05:30.
+2026-04-16 13:50:00,004 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:50:00,074 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:50:27,027 [INFO] Chrome driver closed.
+2026-04-16 13:50:50,317 [INFO] Starting schedule loop for 13:50 IST.
+2026-04-16 13:50:50,335 [INFO] Sleeping for 86350 seconds until next run at 2026-04-17 13:50:00+05:30.
+2026-04-16 13:51:09,438 [INFO] Starting schedule loop for 13:52 IST.
+2026-04-16 13:51:09,449 [INFO] Sleeping for 51 seconds until next run at 2026-04-16 13:52:00+05:30.
+2026-04-16 13:52:00,003 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:52:00,087 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:52:07,863 [INFO] Redirected to login page.
+2026-04-16 13:52:07,887 [INFO] Login form detected. Attempting login.
+2026-04-16 13:52:12,804 [INFO] Login completed.
+2026-04-16 13:52:16,296 [INFO] Profile page loaded.
+2026-04-16 13:52:16,601 [INFO] Applying summary update (Day-4).
+2026-04-16 13:52:23,873 [INFO] Profile summary editor opened (edit icon).
+2026-04-16 13:52:57,747 [WARNING] Profile summary drawer still visible after save.
+2026-04-16 13:52:57,748 [INFO] Profile summary update complete.
+2026-04-16 13:53:00,923 [INFO] Chrome driver closed.
+2026-04-16 13:53:00,924 [INFO] Sleeping for 86339 seconds until next run at 2026-04-17 13:52:00+05:30.
+2026-04-16 13:56:23,015 [INFO] Starting schedule loop for 13:57 IST.
+2026-04-16 13:56:23,022 [INFO] Sleeping for 37 seconds until next run at 2026-04-16 13:57:00+05:30.
+2026-04-16 13:57:00,011 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:57:00,174 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:57:07,477 [INFO] Redirected to login page.
+2026-04-16 13:57:07,501 [INFO] Login form detected. Attempting login.
+2026-04-16 13:57:10,974 [INFO] Login completed.
+2026-04-16 13:57:33,828 [INFO] Starting schedule loop for 13:58 IST.
+2026-04-16 13:57:33,836 [INFO] Sleeping for 26 seconds until next run at 2026-04-16 13:58:00+05:30.
+2026-04-16 13:58:00,011 [INFO] Selected Day-4 summary from profile_summaries.txt.
+2026-04-16 13:58:00,077 [INFO] Loaded profile summary from profile.html.
+2026-04-16 13:58:27,573 [INFO] Chrome driver closed.
