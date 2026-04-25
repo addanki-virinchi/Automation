@@ -17,8 +17,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 #https://www.naukri.com/python-jobs-3?k=python&qproductJobSource=2&naukriCampus=true&experience=0&nignbevent_src=jobsearchDeskGNB
 RECOMMENDED_URL = "https://www.naukri.com/mnjuser/recommendedjobs"
 SEARCH_KEYWORDS = ["python"]
+
 SEARCH_BASE_TEMPLATE = "https://www.naukri.com/{slug}-jobs"
-SEARCH_QUERY = "k={keyword}&nignbevent_src=jobsearchDeskGNBexperience=2&jobAge=3"
+
+SEARCH_QUERY = "k={keyword}&nignbevent_src=jobsearchDeskGNB&experience=2&jobAge=3"
+
 OUTPUT_CSV = "naukri_jobs_py.csv"
 DEFAULT_ENV_FILE = ".env"
 MAX_PAGES = 5
